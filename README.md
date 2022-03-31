@@ -25,7 +25,7 @@ I created this app as a study case on how to interact with an Apache Kafka queue
 - Run `npm run server` or `node dist/app.js` to launch the server, **Build** step required.
 
 ## Environment setup
-Environment variables:
+Create a `.env` file and set your variables:
 - `PORT` - **required**
 - `KAFKA_CLIENT_ID` - **required**
 - `KAFKA_BROKERS` - **required**
