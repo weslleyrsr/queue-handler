@@ -1,0 +1,28 @@
+{
+  "name": "queue-handler",
+  "version": "1.0.0",
+  "description": "queue service using kafka",
+  "main": "src/app.ts",
+  "scripts": {
+    "server": "nodemon -q dist/app.js",
+    "start": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js\"",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Weslley Rodrigo",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.23",
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "kafkajs": "^1.16.0"
+  }
+}
