@@ -1,6 +1,10 @@
-import { Kafka, Producer, RecordMetadata } from 'kafkajs'
+import { Consumer, Kafka, Producer } from 'kafkajs'
+import SubscribeCallback from '../interfaces/subscribe-callback'
+
+
 let kafka: Kafka,
     producer: Producer,
+    consumer: Consumer,
     clientId: string,
     brokers: string[]
 
@@ -24,6 +28,7 @@ const KafkaHelper = {
         })
 
         producer = kafka.producer()
+        consumer = kafka.consumer({ groupId: clientId + '--group' })
     },
     sendMessage: async function(topic: string, message: string): Promise<string> {
         await producer.connect()
@@ -38,6 +43,19 @@ const KafkaHelper = {
         await producer.disconnect()
     
         return 'Message successfully posted'
+    },
+    subscribe: async function (topic: string, fn: SubscribeCallback) {
+        await consumer.connect()
+        await consumer.subscribe({ topic, fromBeginning: true })
+        await consumer.run({
+            eachMessage: async ({ topic, partition, message, heartbeat }) => {
+                try {
+                    fn(topic, partition, message, consumer, heartbeat)
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+        })
     }
 }
 
