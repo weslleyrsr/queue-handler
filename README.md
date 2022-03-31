@@ -1,6 +1,10 @@
 # queue-handler
 
-I created this app as a study case on how to interact with an Apache Kafka queue with NodeJs and TypeScript
+I created this app as a study case on how to interact with an Apache Kafka queue with NodeJs and TypeScript.
+
+In order to add messages to the queue, you'll need to setup both `Kafka`, `Zookeper` and the server - docker-compose will help with that.
+
+You can post to `localhost:YOUR-PORT/message/send` through your preffered HTTP service (e.g postman, curl) to add mesages in the queue and you'll see the message being processed in the terminal where you're running the server.
 
 ## Run locally
 ### Requirements
