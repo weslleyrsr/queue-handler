@@ -23,3 +23,10 @@ I created this app as a study case on how to interact with an Apache Kafka queue
 
 ### Serve
 - Run `npm run server` or `node dist/app.js` to launch the server, **Build** step required.
+
+## Environment setup
+Environment variables:
+- `PORT` - **required**
+- `KAFKA_CLIENT_ID` - **required**
+- `KAFKA_BROKERS` - **required**
+- `KAFKA_TOPIC` - **required**
