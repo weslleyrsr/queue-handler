@@ -6,6 +6,8 @@ In order to add messages to the queue, you'll need to setup both `Kafka`, `Zooke
 
 You can post to `localhost:YOUR-PORT/message/send` through your preffered HTTP service (e.g postman, curl) to add mesages in the queue and you'll see the message being processed in the terminal where you're running the server.
 
+> The http request must have `message` and `topic` on its body.
+
 ## Run locally
 ### Requirements
 - Docker and docker compose
